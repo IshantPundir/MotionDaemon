@@ -41,4 +41,7 @@ if __name__ == '__main__':
     hub = SerialHub(port=args.port)
     while True:
         command = input("$. ")
+        if command.lower() in ['q', 'quit', 'exit']: break
         hub.send(command)
+    
+    hub.close()
